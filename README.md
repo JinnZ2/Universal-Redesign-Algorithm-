@@ -72,3 +72,9 @@ const results = redesign.executeRedesign("Energy Grid", {
 });
 
 redesign.summarizeRedesign(results);
+
+---
+
+## 🧠 Scientific Frameworks
+
+- [Bio-Grid Universal Framework](./docs/BIO-GRID_FRAMEWORK.md)
