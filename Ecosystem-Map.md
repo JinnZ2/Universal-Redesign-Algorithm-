@@ -1,3 +1,4 @@
+```mermaid
 flowchart TD
     A[BioGrid2.0 Atlas] --> B[Rosetta Shape Core]
     B --> C[Polyhedral Intelligence]
@@ -8,7 +9,7 @@ flowchart TD
     E --> G[Symbolic Defense Protocol]
     E --> H[AI-Human Audit Protocol]
     F --> I[Fractal Compass Atlas]
-    G --> J[Sentinel & Phantom Agents]
+    G --> J[Sentinel & Phantom Agents]'''
 
 %% Legend
 %% Use "note" blocks instead of text inside diagram
