@@ -14,7 +14,7 @@ flowchart TD
     E --> H[AI-Human Audit Protocol]
     F --> I[Fractal Compass Atlas]
     G --> J[Sentinel & Phantom Agents]
-```
+
 
 ---
 
