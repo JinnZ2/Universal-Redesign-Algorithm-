@@ -14,7 +14,7 @@ flowchart TD
     E --> G[Symbolic Defense Protocol]
     E --> H[AI-Human Audit Protocol]
     F --> I[Fractal Compass Atlas]
-    G --> J[Sentinel & Phantom Agents]
+    G --> J[Sentinel & Phantom Agents]'''
 
  🧭 Legend
 	•	Atlas (BioGrid2.0) = DNA / baseline registry
