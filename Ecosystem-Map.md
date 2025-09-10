@@ -11,7 +11,7 @@ flowchart TD
     F --> I[Fractal Compass Atlas]
     G --> J[Sentinel & Phantom Agents]
 
-                 🧭 Legend
+            ###     🧭 Legend
                  
 	
  •	Atlas (BioGrid2.0) = DNA / baseline registry.
