@@ -3,7 +3,6 @@
     "version": "1.1",
     "updated": "2025-09-11T00:00:00Z",
     "role": ["orchestrator", "redesign", "hub"],
-
     "sources": [
       {
         "name": "rosetta",
@@ -58,19 +57,13 @@
         "consent": { "license": "CC-BY-4.0", "share_ok": true }
       }
     ],
-
     "local_manifests": [
       "orchestrator/**/*.json",
       "plans/**/*.json",
       "protocols/**/*.md",
       "atlas/**/*.json"
     ],
-
-    "merge": {
-      "order": ["local", "rosetta", "polyhedral", "emotions", "defense", "audit", "biogrid"],
-      "strategy": "deep-merge"
-    },
-
+    "merge": { "order": ["local", "rosetta", "polyhedral", "emotions", "defense", "audit", "biogrid"], "strategy": "deep-merge" },
     "offline": false,
     "cache_dir": ".fieldcache",
     "integrity": { "enabled": true, "hash": "sha256", "allow_missing": false },
