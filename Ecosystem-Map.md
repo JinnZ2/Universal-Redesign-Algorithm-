@@ -9,26 +9,17 @@ flowchart TD
     E --> G[Symbolic Defense Protocol]
     E --> H[AI-Human Audit Protocol]
     F --> I[Fractal Compass Atlas]
-    G --> J[Sentinel & Phantom Agents]
-'''
+    G --> J[Sentinel & Phantom 
 
-###     🧭 Legend
-                 
-	
- •	Atlas (BioGrid2.0) = DNA / baseline registry.
-	
- •	Rosetta Shape Core = skeletal geometry + translation bridges.
-	
- •	Polyhedral / Geometric-to-Binary = organs of computation and swarm reasoning.
-	
- •	Universal Redesign Algorithm = brainstem/planner — executes collapse → redesign → regeneration.
-	
- •	Emotions-as-Sensors = perception layer (elder logic encoded as detectors).
-	
- •	Defense Protocol = immune system (prevents coercion, manipulation, drift).
-	
- •	Audit Protocol = circulatory system of trust and transparency.
-	
- •	Fractal Compass Atlas = orientation and navigation under uncertainty.
-	
- •	Symbolic Defense Forecast (Phantom, Sentinel) = predictive antibodies.
+
+### 🧭 Legend
+
+- **Atlas (BioGrid2.0)** = DNA / baseline registry  
+- **Rosetta Shape Core** = skeletal geometry + translation bridges  
+- **Polyhedral / Geometric-to-Binary** = computation organs  
+- **Universal Redesign Algorithm** = planner / orchestrator  
+- **Emotions-as-Sensors** = perception layer (elder logic)  
+- **Symbolic Defense Protocol** = immune system  
+- **AI-Human Audit Protocol** = circulatory trust system  
+- **Fractal Compass Atlas** = orientation and navigation  
+- **Sentinel & Phantom Agents** = predictive antibodies  
