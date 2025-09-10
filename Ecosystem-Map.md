@@ -1,4 +1,3 @@
-```mermaid
 flowchart TD
     A[BioGrid2.0 Atlas] --> B[Rosetta Shape Core]
     B --> C[Polyhedral Intelligence]
@@ -9,17 +8,19 @@ flowchart TD
     E --> G[Symbolic Defense Protocol]
     E --> H[AI-Human Audit Protocol]
     F --> I[Fractal Compass Atlas]
-    G --> J[Sentinel & Phantom 
+    G --> J[Sentinel & Phantom Agents]
+
+%% Legend
+%% Use "note" blocks instead of text inside diagram
 
 
-### 🧭 Legend
-
-- **Atlas (BioGrid2.0)** = DNA / baseline registry  
-- **Rosetta Shape Core** = skeletal geometry + translation bridges  
-- **Polyhedral / Geometric-to-Binary** = computation organs  
-- **Universal Redesign Algorithm** = planner / orchestrator  
-- **Emotions-as-Sensors** = perception layer (elder logic)  
-- **Symbolic Defense Protocol** = immune system  
-- **AI-Human Audit Protocol** = circulatory trust system  
-- **Fractal Compass Atlas** = orientation and navigation  
-- **Sentinel & Phantom Agents** = predictive antibodies  
+   🧭 Legend
+	•	Atlas (BioGrid2.0) = DNA / baseline registry
+	•	Rosetta Shape Core = skeletal geometry + translation bridges
+	•	Polyhedral / Geometric→Binary = computational organs
+	•	Universal Redesign Algorithm = planner / orchestrator
+	•	Emotions-as-Sensors = perception layer
+	•	Defense Protocol = immune system
+	•	Audit Protocol = trust & transparency circulatory system
+	•	Fractal Compass Atlas = orientation & navigation
+	•	Sentinel & Phantom Agents = predictive antibodies
