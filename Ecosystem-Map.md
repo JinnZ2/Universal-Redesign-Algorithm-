@@ -1,8 +1,9 @@
-🌐 System Integration Map
+## 🌐 System Integration Map
 
-This repository is part of a larger symbolic-intelligence ecosystem.
-Below is the high-level architecture, showing how the different repositories interconnect.
+This repository is part of a larger symbolic-intelligence ecosystem.  
+Below is the high-level architecture showing how the different repositories interconnect.
 
+```mermaid
 flowchart TD
     A[BioGrid2.0 Atlas] --> B[Rosetta Shape Core]
     B --> C[Polyhedral Intelligence]
@@ -13,7 +14,7 @@ flowchart TD
     E --> G[Symbolic Defense Protocol]
     E --> H[AI-Human Audit Protocol]
     F --> I[Fractal Compass Atlas]
-    G --> J[Sentinel & Phantom Agents]'''
+    G --> J[Sentinel & Phantom Agents]
 
  🧭 Legend
 	•	Atlas (BioGrid2.0) = DNA / baseline registry
