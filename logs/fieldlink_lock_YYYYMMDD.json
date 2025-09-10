@@ -1,0 +1,13 @@
+{
+  "generated": "2025-09-11T00:00:00Z",
+  "repo": "JinnZ2/Universal-Redesign-Algorithm-",
+  "sources": [
+    {"name": "rosetta", "commit": "<SHA>"},
+    {"name": "polyhedral", "commit": "<SHA>"},
+    {"name": "emotions", "commit": "<SHA>"},
+    {"name": "defense", "commit": "<SHA>"},
+    {"name": "audit", "commit": "<SHA>"},
+    {"name": "biogrid", "commit": "<SHA>"}
+  ],
+  "notes": "Pin these SHAs to reproduce staged atlas exactly."
+}
