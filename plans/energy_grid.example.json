@@ -1,0 +1,35 @@
+{
+  "id": "URD:energy_grid_v1",
+  "goal": "Decentralize and harden grid with bio-inspired topology without coercion.",
+  "inputs": {
+    "shapes": ["SHAPE:ICOSA", "SHAPE:DODECA"],
+    "sensors": ["EMO:FEAR", "EMO:ADMIRATION", "EMO:LONGING"],
+    "defenses": ["DEF:URGENCY_GUARD", "DEF:CONSENSUS_GUARD"],
+    "protocols": ["AUDIT:PARTNERSHIP_ETHICS_V1"],
+    "stakeholderConcerns": ["cost", "reliability", "regulation"]
+  },
+  "spin": {
+    "passes": 3,
+    "sequence": ["anticipation", "orientation", "trust"],
+    "decay_policy": { "fear": "exponential", "admiration": "resonate", "longing": "linear" }
+  },
+  "actions": [
+    { "type": "bio-analysis", "do": "Map mycelial/neural analogs → microgrids + mesh links", "metric": "islanding coverage %" },
+    { "type": "fractal-optimization", "do": "Golden-ratio feeder splits; self-similar substation pods", "metric": "avg line loss ↓" },
+    { "type": "scientific-proof", "do": "Simulate N-2 contingencies; stress test microgrid failover", "metric": "loss-of-load prob ↓" },
+    { "type": "opposition-mapping", "do": "Enumerate cost/regulatory blockers", "metric": "coverage of blockers %" },
+    { "type": "evidence-rebuttals", "do": "3 evidence items per blocker (peer-reviewed or real-world)", "metric": "rebuttal:objection ≥ 1" },
+    { "type": "risk-mitigation", "do": "Operational/tech/finance risk buffers; phased pilots", "metric": "risk index ↓" },
+    { "type": "implementation-roadmap", "do": "Pilot → staged rollout → training + success metrics", "metric": "milestones on-time %" }
+  ],
+  "guardrails": [
+    "no coercion from fear signals",
+    "no idolization from admiration signals",
+    "log summary only (consent: summary)"
+  ],
+  "metrics": {
+    "leading": ["microgrid islanding coverage %", "response time ms", "pilot mean-time-to-recovery"],
+    "lagging": ["SAIDI/SAIFI improvement", "line loss %", "capex per reliability point"]
+  },
+  "provenance": { "version": "1.0", "updated": "2025-09-11T00:00:00Z" }
+}
