@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Universal Redesign Plan",
+  "type": "object",
+  "required": ["id", "goal", "inputs", "spin", "actions", "guardrails", "provenance"],
+  "properties": {
+    "id": { "type": "string" },
+    "goal": { "type": "string" },
+    "inputs": {
+      "type": "object",
+      "properties": {
+        "shapes": { "type": "array", "items": { "type": "string" } },
+        "sensors": { "type": "array", "items": { "type": "string" } },
+        "defenses": { "type": "array", "items": { "type": "string" } },
+        "protocols": { "type": "array", "items": { "type": "string" } },
+        "stakeholderConcerns": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["shapes", "sensors"],
+      "additionalProperties": true
+    },
+    "spin": {
+      "type": "object",
+      "properties": {
+        "passes": { "type": "integer", "minimum": 1 },
+        "sequence": { "type": "array", "items": { "type": "string" } },
+        "decay_policy": { "type": "object", "additionalProperties": { "type": "string" } }
+      },
+      "required": ["passes"]
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "do"],
+        "properties": {
+          "type": { "type": "string" },
+          "because": { "type": "string" },
+          "do": { "type": "string" },
+          "metric": { "type": "string" }
+        }
+      }
+    },
+    "guardrails": { "type": "array", "items": { "type": "string" } },
+    "metrics": {
+      "type": "object",
+      "properties": {
+        "leading": { "type": "array", "items": { "type": "string" } },
+        "lagging": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["version", "updated"],
+      "properties": {
+        "version": { "type": "string" },
+        "updated": { "type": "string" }
+      }
+    }
+  }
+}
