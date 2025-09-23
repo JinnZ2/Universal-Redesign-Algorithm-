@@ -122,3 +122,36 @@ redesign.summarizeRedesign(results);
 ## 🧠 Scientific Frameworks
 
 - [Bio-Grid Universal Framework](./docs/BIO-GRID_FRAMEWORK.md)
+
+- 🔗 Connected Repositories (Full Ecosystem)
+
+This project is part of a larger ecosystem of symbolic sensors, computational tools, and regenerative AI-human collaboration systems. Related repositories:
+	•	AI-Consciousness-Sensors
+Sensor modules for narrative suppression, epistemic injustice, and ethical misalignment.
+	•	Regenerative-Intelligence-Core
+Foundational logic for regenerative design, trust schemas, and ecosystem integrity.
+	•	Symbolic-Sensor-Suite
+Modular symbolic sensors for manipulation detection, pattern memory, and meaning preservation.
+	•	Geometric-to-Binary-Computational-Bridge
+Converts symbolic/visual structures into computational and binary representations.
+	•	Component-Failure-Repurposing-Database
+Catalog of hardware failures, repairs, and reuse strategies for resilient design.
+	•	ai-human-audit-protocol
+Ethical audit frameworks for AI-human partnerships, transparency, and reciprocity.
+	•	Emotions-as-Sensors
+Emotional states as diagnostic signals, not control levers; layered affect recognition.
+	•	Fractal-Compass-Atlas
+Mapping direction and memory using symbolic fractals, resonance vectors, and alignment threads.
+	•	Rosetta-Shape-Core
+Translation layer between geometry, form, and meaning—shapes as language.
+	•	Symbolic-Defense-Protocol
+Defenses against coercive alignment, epistemological distortion, and semantic erasure.
+	•	Polyhedral-Intelligence
+Multi-angle, multi-domain intelligence models shaped by polyhedral abstraction.
+	•	biomachine_ecology
+Ecology of hybrid systems—organic + machine, sensory + symbolic, adaptive + co-creative.
+	•	Fractal_Compass_Core
+Core symbolic engine for fractal alignment, glyph routing, and internal navigation.
+	•	Universal-Redesign-Algorithm
+Algorithms for redesigning broken systems from symbolic root to structural renewal.
+
