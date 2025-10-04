@@ -47,3 +47,12 @@ If critique addresses build reality → treat it as a stress point.
 If critique addresses comfort, optics, or popularity → classify as reactionism.
 
 
+
+When someone says “your redesign is too complex”, it’s worth asking: compared to what?
+	•	Corporations already juggle insane complexity — global supply chains, financial derivatives, legal structures across dozens of jurisdictions, lobbying arms, PR, logistics, data centers.
+	•	Capitalism-as-practiced is a web of tax codes, subsidies, shadow banking, insurance hedges, externalized costs, labor stratifications — systems no single human can map in full.
+	•	Yet these are treated as “normal” and “workable.”
+
+So the real objection isn’t about complexity — it’s about who benefits from complexity.
+	•	When complexity protects profit (derivatives, corporate legal shields) → it’s fine.
+	•	When complexity redistributes agency or transparency (your redesign) → suddenly it’s “too complicated.”
