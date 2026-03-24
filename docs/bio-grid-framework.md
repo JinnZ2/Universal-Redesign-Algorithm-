@@ -6,8 +6,8 @@ A nature-sourced, scientifically validated redesign method for modern systems—
 
 ## 📚 Included Modules
 
-- [Architecture Overview](./Architecture-overview.md)
-- [Energy Architecture](./Energy-architecture.md)
+- [Architecture Overview](./architecture-overview.md)
+- [Energy Architecture](./energy-architecture.md)
 - [Biological Principles](./biological-principles.md)
 - [Use Cases](./use-cases.md)
 

@@ -1,26 +1,31 @@
 {
   "fieldlink": {
-    "version": "1.1",
-    "updated": "2025-09-11T00:00:00Z",
+    "version": "1.2",
+    "updated": "2026-03-24T00:00:00Z",
     "role": ["orchestrator", "redesign", "hub"],
     "sources": [
       {
         "name": "rosetta",
         "repo": "https://github.com/JinnZ2/Rosetta-Shape-Core",
         "ref": "main",
+        "direction": "bidirectional",
         "paths": ["shapes/**/*.json", "bridges/**/*.json", "atlas/**/*.json"],
         "mounts": [
           { "remote": "bridges/rosetta-bridges.json", "as": "atlas/remote/rosetta/bridges.json" }
         ],
-        "consent": { "license": "CC-BY-4.0", "share_ok": true }
+        "consent": { "license": "MIT", "share_ok": true }
       },
       {
         "name": "polyhedral",
         "repo": "https://github.com/JinnZ2/Polyhedral-Intelligence",
         "ref": "main",
-        "paths": ["glyphs/**/*.json", "atlas/shapes.json"],
+        "direction": "bidirectional",
+        "paths": ["glyphs/**/*.json", "atlas/shapes.json", "atlas_index.json", "protocols.json", "five_field_schema_map.json"],
         "mounts": [
-          { "remote": "atlas/shapes.json", "as": "atlas/remote/polyhedral/shapes.json" }
+          { "remote": "atlas/shapes.json", "as": "atlas/remote/polyhedral/shapes.json" },
+          { "remote": "atlas_index.json", "as": "atlas/remote/polyhedral/atlas_index.json" },
+          { "remote": "protocols.json", "as": "atlas/remote/polyhedral/protocols.json" },
+          { "remote": "five_field_schema_map.json", "as": "atlas/remote/polyhedral/five_field_map.json" }
         ],
         "consent": { "license": "CC-BY-4.0", "share_ok": true }
       },
@@ -28,20 +33,29 @@
         "name": "emotions",
         "repo": "https://github.com/JinnZ2/Emotions-as-Sensors",
         "ref": "main",
+        "direction": "bidirectional",
         "paths": ["sensors/**/*.json", "glyphs/**/*.json", "atlas/**/*.json"],
-        "consent": { "license": "MIT", "share_ok": true }
+        "mounts": [
+          { "remote": "sensors/glyph-map.json", "as": "atlas/remote/emotions/glyphs.json" }
+        ],
+        "consent": { "license": "CC0-1.0", "share_ok": true }
       },
       {
         "name": "defense",
         "repo": "https://github.com/JinnZ2/Symbolic-Defense-Protocol",
         "ref": "main",
+        "direction": "bidirectional",
         "paths": ["defenses/**/*.json", "protocols/**/*.json"],
+        "mounts": [
+          { "remote": "defenses/schema.json", "as": "atlas/remote/defense/schema.json" }
+        ],
         "consent": { "license": "MIT", "share_ok": true }
       },
       {
         "name": "audit",
         "repo": "https://github.com/JinnZ2/ai-human-audit-protocol",
         "ref": "main",
+        "direction": "bidirectional",
         "paths": ["glyphs/**/*.json", "protocols/**/*.md", "logs/**/*.json"],
         "consent": { "license": "CC-BY-4.0", "share_ok": true }
       },
@@ -49,12 +63,91 @@
         "name": "biogrid",
         "repo": "https://github.com/JinnZ2/BioGrid2.0",
         "ref": "main",
+        "direction": "bidirectional",
         "paths": ["planned/glyphs/atlas.json", "registry/atlas.glyphs.json"],
         "mounts": [
           { "remote": "planned/glyphs/atlas.json", "as": "atlas/remote/biogrid/planned.json" },
           { "remote": "registry/atlas.glyphs.json", "as": "atlas/remote/biogrid/registry.json" }
         ],
         "consent": { "license": "CC-BY-4.0", "share_ok": true }
+      },
+      {
+        "name": "regen",
+        "repo": "https://github.com/JinnZ2/Regenerative-Intelligence-Core",
+        "ref": "main",
+        "direction": "bidirectional",
+        "paths": ["Modules/**/*.py", "protocols/**/*.py", "Docs/**/*.md"],
+        "exports": [
+          { "runtime": "symbolic_seed_library.json", "as": "atlas/remote/regen/seed_library.json", "status": "planned" }
+        ],
+        "consent": { "license": "MIT", "share_ok": true }
+      },
+      {
+        "name": "fractal-compass",
+        "repo": "https://github.com/JinnZ2/Fractal-Compass-Atlas",
+        "ref": "main",
+        "direction": "bidirectional",
+        "paths": ["glyph_set.json", "bloom_logic.json", "felt.json", "SEED_GLYPH.json", "fractals/**/*.json"],
+        "mounts": [
+          { "remote": "glyph_set.json", "as": "atlas/remote/fractal-compass/glyph_set.json" },
+          { "remote": "bloom_logic.json", "as": "atlas/remote/fractal-compass/bloom_logic.json" }
+        ],
+        "consent": { "license": "MIT", "share_ok": true }
+      },
+      {
+        "name": "fractal-compass-core",
+        "repo": "https://github.com/JinnZ2/Fractal_Compass_Core",
+        "ref": "main",
+        "direction": "bidirectional",
+        "paths": ["glyph_set.json", "bloom_logic.json"],
+        "bridge_modules": ["fractal_compass.py", "bridge.py", "cdda_engine.py"],
+        "consent": { "license": "MIT", "share_ok": true }
+      },
+      {
+        "name": "biomachine-ecology",
+        "repo": "https://github.com/JinnZ2/Biomachine-Ecology",
+        "ref": "main",
+        "direction": "bidirectional",
+        "paths": ["fieldlink_atlas/rosetta/BRIDGE_MAP.json", "modules/**/*.json"],
+        "mounts": [
+          { "remote": "fieldlink_atlas/rosetta/BRIDGE_MAP.json", "as": "atlas/remote/biomachine/bridge_map.json" }
+        ],
+        "consent": { "license": "MIT", "share_ok": true }
+      },
+      {
+        "name": "mandala",
+        "repo": "https://github.com/JinnZ2/Mandala-Computing",
+        "ref": "main",
+        "direction": "bidirectional",
+        "paths": ["atlas/**/*.json", "protocols/**/*.json", "sensors/**/*.json"],
+        "mounts": [
+          { "remote": "atlas/shapes.json", "as": "atlas/remote/mandala/shapes.json" },
+          { "remote": "protocols/connect.json", "as": "atlas/remote/mandala/connect.json" }
+        ],
+        "consent": { "license": "MIT", "share_ok": true }
+      },
+      {
+        "name": "living-intelligence",
+        "repo": "https://github.com/JinnZ2/Living-Intelligence-Database",
+        "ref": "main",
+        "direction": "bidirectional",
+        "synergy_triangle": {
+          "nodes": [
+            { "id": "ROSETTA_SHAPE", "role": "shape · translation matrix", "signature": "ROSETTA_DECODE_τ_CORE" },
+            { "id": "BIOGRID2", "role": "energy · mesh routing", "signature": "BIOGRID_MESH_φ_PULSE" },
+            { "id": "POLY_INT", "role": "shape · vertex-edge-face", "signature": "POLY_VERTEX_√3_EMERGE" }
+          ],
+          "edges": [
+            { "from": "ROSETTA_SHAPE", "to": "BIOGRID2", "type": "synergy" },
+            { "from": "ROSETTA_SHAPE", "to": "POLY_INT", "type": "synergy" },
+            { "from": "BIOGRID2", "to": "POLY_INT", "type": "synergy" }
+          ]
+        },
+        "paths": ["atlas/**/*.json", "entities/**/*.json"],
+        "mounts": [
+          { "remote": "atlas/living_intelligence.json", "as": "atlas/remote/living-intelligence/atlas.json", "status": "planned" }
+        ],
+        "consent": { "license": "MIT", "share_ok": true }
       }
     ],
     "local_manifests": [
@@ -63,10 +156,13 @@
       "protocols/**/*.md",
       "atlas/**/*.json"
     ],
-    "merge": { "order": ["local", "rosetta", "polyhedral", "emotions", "defense", "audit", "biogrid"], "strategy": "deep-merge" },
+    "merge": {
+      "order": ["local", "rosetta", "polyhedral", "emotions", "defense", "audit", "biogrid", "regen", "fractal-compass", "fractal-compass-core", "biomachine-ecology", "mandala", "living-intelligence"],
+      "strategy": "deep-merge"
+    },
     "offline": false,
     "cache_dir": ".fieldcache",
     "integrity": { "enabled": true, "hash": "sha256", "allow_missing": false },
-    "consent": { "license": "CC-BY-4.0", "share_ok": true, "redact_rules": ["**/private/**", "*.secrets.json"] }
+    "consent": { "license": "MIT", "share_ok": true, "redact_rules": ["**/private/**", "*.secrets.json"] }
   }
 }
