@@ -9,10 +9,10 @@
     "inputs": {
       "type": "object",
       "properties": {
-        "shapes": { "type": "array", "items": { "type": "string" } },
-        "sensors": { "type": "array", "items": { "type": "string" } },
-        "defenses": { "type": "array", "items": { "type": "string" } },
-        "protocols": { "type": "array", "items": { "type": "string" } },
+        "shapes": { "type": "array", "items": { "type": "string", "pattern": "^SHAPE\\.[A-Z0-9_]+$" } },
+        "sensors": { "type": "array", "items": { "type": "string", "pattern": "^EMOTION\\.[A-Z0-9_]+$" } },
+        "defenses": { "type": "array", "items": { "type": "string", "pattern": "^DEFENSE\\.[A-Z0-9_]+$" } },
+        "protocols": { "type": "array", "items": { "type": "string", "pattern": "^AUDIT\\.[A-Z0-9_]+$" } },
         "stakeholderConcerns": { "type": "array", "items": { "type": "string" } }
       },
       "required": ["shapes", "sensors"],

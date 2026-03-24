@@ -1,11 +1,11 @@
 {
-  "id": "URD:energy_grid_v1",
+  "id": "URD.energy_grid_v1",
   "goal": "Decentralize and harden grid with bio-inspired topology without coercion.",
   "inputs": {
-    "shapes": ["SHAPE:ICOSA", "SHAPE:DODECA"],
-    "sensors": ["EMO:FEAR", "EMO:ADMIRATION", "EMO:LONGING"],
-    "defenses": ["DEF:URGENCY_GUARD", "DEF:CONSENSUS_GUARD"],
-    "protocols": ["AUDIT:PARTNERSHIP_ETHICS_V1"],
+    "shapes": ["SHAPE.ICOSA", "SHAPE.DODECA"],
+    "sensors": ["EMOTION.FEAR", "EMOTION.ADMIRATION", "EMOTION.LONGING"],
+    "defenses": ["DEFENSE.URGENCY_GUARD", "DEFENSE.CONSENSUS_GUARD"],
+    "protocols": ["AUDIT.PARTNERSHIP_ETHICS_V1"],
     "stakeholderConcerns": ["cost", "reliability", "regulation"]
   },
   "spin": {
