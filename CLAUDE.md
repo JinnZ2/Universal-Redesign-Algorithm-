@@ -43,6 +43,10 @@ docs/                — Framework documentation, case studies, principles
   case-supplychain.md
   case-wastewater.md
   case-agri-logistics.md
+src/                 — Pipeline runtime (Python, stdlib-only)
+  resolver.py        — Fieldlink entity resolver (SHAPE.ICOSA → JSON)
+  pipeline.py        — End-to-end plan execution pipeline
+  run.py             — CLI entry point
 scripts/             — Validation utilities (validate.sh)
 logs/                — Fieldlink lock files
 atlas/remote/        — Staged cross-repo data (fieldlink mounts)
@@ -53,6 +57,12 @@ atlas/remote/        — Staged cross-repo data (fieldlink mounts)
 ```bash
 # Validate plans against schema (requires jq; ajv optional)
 ./scripts/validate.sh
+
+# Run the pipeline on a plan (resolves entities, checks coherence, simulates spin)
+python -m src.run plans/energy_grid.example.json --clone-base /tmp
+
+# Output raw JSON report
+python -m src.run plans/energy_grid.example.json --clone-base /tmp --json
 ```
 
 ## Key Conventions
