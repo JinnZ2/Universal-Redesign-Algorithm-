@@ -364,6 +364,14 @@ def _summarize(data: dict) -> str:
     """One-line summary of a resolved entity."""
     if "faces" in data:
         return f"{data.get('name', '?')} ({data.get('faces')}F/{data.get('edges')}E/{data.get('vertices')}V)"
-    if "label" in data:
-        return data["label"]
-    return str(data.get("name", data.get("id", "?")))
+    via = data.get("resolved_via")
+    kind = data.get("kind", "")
+    name = data.get("name", data.get("label", data.get("id", "?")))
+    if via == "bridge":
+        shape = data.get("shape", "")
+        extra = f" via {shape}" if shape else ""
+        if kind == "DEFENSE":
+            code = data.get("code", "")
+            return f"{name} [{code}]{extra}"
+        return f"{name}{extra}"
+    return str(name)
