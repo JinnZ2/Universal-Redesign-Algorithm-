@@ -166,6 +166,25 @@
         "consent": { "license": "MIT", "share_ok": true }
       },
       {
+        "name": "mathematic-economics",
+        "repo": "https://github.com/JinnZ2/Mathematic-economics",
+        "ref": "main",
+        "direction": "bidirectional",
+        "paths": [
+          "AI/**/*.py",
+          "equations.yaml",
+          "data/**/*.py"
+        ],
+        "exports": [
+          { "runtime": "AI/money-free-model.py", "provides": ["ECON.PHYSICAL_ACCOUNTING", "ECON.RESOURCE_DEPLETION"] },
+          { "runtime": "AI/semantic-decontamination.py", "provides": ["DEFENSE.SEMANTIC_DECONTAMINATION", "ECON.CONTEXT_MULTIPLEXER"] },
+          { "runtime": "AI/temporal-energy.py", "provides": ["ECON.TEMPORAL_ENERGY", "ECON.CAUSAL_INFERENCE"] },
+          { "runtime": "equations.yaml", "provides": ["ECON.OSDI", "ECON.EXTRACTION_RATIO", "ECON.RISK_INDEX", "ECON.SMITH_COMPLIANCE"] }
+        ],
+        "consumes": ["RESILIENCE.COUPLING_EDGE", "SUBSTRATE.PROPERTY_VECTOR"],
+        "consent": { "license": "CC0-1.0", "share_ok": true }
+      },
+      {
         "name": "living-intelligence",
         "repo": "https://github.com/JinnZ2/Living-Intelligence-Database",
         "ref": "main",
@@ -196,7 +215,7 @@
       "atlas/**/*.json"
     ],
     "merge": {
-      "order": ["local", "rosetta", "polyhedral", "emotions", "defense", "audit", "biogrid", "regen", "fractal-compass", "fractal-compass-core", "biomachine-ecology", "mandala", "resilience", "shadow-hunting", "living-intelligence"],
+      "order": ["local", "rosetta", "polyhedral", "emotions", "defense", "audit", "biogrid", "regen", "fractal-compass", "fractal-compass-core", "biomachine-ecology", "mandala", "resilience", "shadow-hunting", "mathematic-economics", "living-intelligence"],
       "strategy": "deep-merge"
     },
     "offline": false,
