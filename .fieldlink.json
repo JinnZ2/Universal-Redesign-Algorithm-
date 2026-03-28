@@ -1,7 +1,7 @@
 {
   "fieldlink": {
     "version": "1.2",
-    "updated": "2026-03-24T00:00:00Z",
+    "updated": "2026-03-28T00:00:00Z",
     "role": ["orchestrator", "redesign", "hub"],
     "sources": [
       {
@@ -127,6 +127,28 @@
         "consent": { "license": "MIT", "share_ok": true }
       },
       {
+        "name": "resilience",
+        "repo": "https://github.com/JinnZ2/Resilience",
+        "ref": "main",
+        "direction": "bidirectional",
+        "paths": [
+          "sim/**/*.py",
+          "KnowledgeDNA/**/*.py",
+          "SAR/**/*.py",
+          "fieldlink.json"
+        ],
+        "exports": [
+          { "runtime": "sim/cities/coupling.py", "provides": ["RESILIENCE.CITY_MODEL", "RESILIENCE.COUPLING_EDGE"] },
+          { "runtime": "KnowledgeDNA/geobin_bridge.py", "provides": ["SUBSTRATE.PROPERTY_VECTOR", "BRIDGE.GEOBIN"] },
+          { "runtime": "KnowledgeDNA/equation_field.py", "provides": ["EQUATION.FIELD_OVERLAP"] },
+          { "runtime": "sim/seed_protocol.py", "provides": ["SEED.STDLIB_PROTOCOL"] },
+          { "runtime": "KnowledgeDNA/knowledge_dna.py", "provides": ["DNA.TEACHER_GRAPH"] },
+          { "runtime": "sim/seed_mesh.py", "provides": ["MESH.GRID_FAILURE_SIM"] }
+        ],
+        "consumes": ["SHAPE.OCTA", "SHAPE.ICOSA", "CONST.PHI", "BRIDGE.ROSETTA"],
+        "consent": { "license": "CC0-1.0", "share_ok": true }
+      },
+      {
         "name": "living-intelligence",
         "repo": "https://github.com/JinnZ2/Living-Intelligence-Database",
         "ref": "main",
@@ -157,7 +179,7 @@
       "atlas/**/*.json"
     ],
     "merge": {
-      "order": ["local", "rosetta", "polyhedral", "emotions", "defense", "audit", "biogrid", "regen", "fractal-compass", "fractal-compass-core", "biomachine-ecology", "mandala", "living-intelligence"],
+      "order": ["local", "rosetta", "polyhedral", "emotions", "defense", "audit", "biogrid", "regen", "fractal-compass", "fractal-compass-core", "biomachine-ecology", "mandala", "resilience", "living-intelligence"],
       "strategy": "deep-merge"
     },
     "offline": false,
