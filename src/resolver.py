@@ -77,6 +77,7 @@ class FieldlinkResolver:
         self._cache: dict[str, Any] = {}
         # Bridge data (loaded once)
         self._bridges: list[dict] | None = None
+        self._bridge_raw: dict = {}
 
     # ------------------------------------------------------------------
     # Public API
@@ -96,10 +97,15 @@ class FieldlinkResolver:
             return None
 
         source_root = self._find_source_root(source_name)
-        if not source_root:
-            return None
 
-        result = self._lookup_entity(entity_id, namespace, source_root)
+        result = None
+        if source_root:
+            result = self._lookup_entity(entity_id, namespace, source_root)
+
+        # Fallback: resolve EMOTION/DEFENSE/AUDIT via Rosetta bridge map
+        if result is None and namespace in ("EMOTION", "DEFENSE", "AUDIT"):
+            result = self._resolve_via_bridge(entity_id, namespace)
+
         if result:
             self._cache[entity_id] = result
         return result
@@ -203,21 +209,100 @@ class FieldlinkResolver:
 
         return None
 
+    def _resolve_via_bridge(self, entity_id: str, namespace: str) -> dict | None:
+        """Resolve EMOTION/DEFENSE/AUDIT entities via Rosetta bridge map.
+
+        These entities don't have standalone JSON files — they live inside
+        the bridge map's sensor/defense/protocol arrays. This method
+        searches the bridge map and returns a synthetic resolved entity.
+        """
+        bridges = self._load_bridges()
+        if not bridges:
+            return None
+
+        suffix = entity_id.split(".", 1)[1].lower()  # e.g. "FEAR" → "fear"
+
+        if namespace == "EMOTION":
+            # Search shape bridge entries
+            for entry in bridges:
+                for sensor in entry.get("sensors", []):
+                    if sensor.lower() == suffix:
+                        return {
+                            "id": entity_id,
+                            "kind": "EMOTION",
+                            "name": sensor,
+                            "resolved_via": "bridge",
+                            "shape": entry.get("shape"),
+                            "bridge_scroll": entry.get("bridge_scroll", ""),
+                        }
+            # Fallback: search emotion_defense_bridge pairs
+            pairs = self._load_bridge_pairs()
+            for pair in pairs:
+                if pair.get("sensor", "").lower() == suffix:
+                    return {
+                        "id": entity_id,
+                        "kind": "EMOTION",
+                        "name": pair["sensor"],
+                        "resolved_via": "bridge_pair",
+                        "defense": pair.get("defense", ""),
+                        "glyph": pair.get("glyph", ""),
+                        "note": pair.get("note", ""),
+                    }
+
+        elif namespace == "DEFENSE":
+            # Match by normalized name: URGENCY_GUARD → "urgency"
+            suffix_words = suffix.replace("_guard", "").replace("_", " ")
+            for entry in bridges:
+                for dname in entry.get("defense_names", []):
+                    if suffix_words in dname.lower():
+                        idx = entry["defense_names"].index(dname)
+                        codes = entry.get("defenses", [])
+                        return {
+                            "id": entity_id,
+                            "kind": "DEFENSE",
+                            "name": dname,
+                            "code": codes[idx] if idx < len(codes) else None,
+                            "resolved_via": "bridge",
+                            "shape": entry.get("shape"),
+                        }
+
+        elif namespace == "AUDIT":
+            suffix_norm = suffix.lower().replace("_", " ")
+            for entry in bridges:
+                for proto in entry.get("protocols", []):
+                    if suffix_norm.replace(" ", "_") in proto.lower().replace(".", "_"):
+                        return {
+                            "id": entity_id,
+                            "kind": "AUDIT",
+                            "name": proto,
+                            "resolved_via": "bridge",
+                            "shape": entry.get("shape"),
+                        }
+
+        return None
+
     def _load_bridges(self) -> list[dict]:
         """Load rosetta-bridges.json (bridge map)."""
         if self._bridges is not None:
             return self._bridges
 
+        self._bridge_raw = self._load_bridge_file()
+        self._bridges = self._bridge_raw.get("map", [])
+        return self._bridges
+
+    def _load_bridge_pairs(self) -> list[dict]:
+        """Load emotion_defense_bridge.pairs from rosetta-bridges.json."""
+        self._load_bridges()  # ensure raw data loaded
+        return self._bridge_raw.get("emotion_defense_bridge", {}).get("pairs", [])
+
+    def _load_bridge_file(self) -> dict:
+        """Load the full rosetta-bridges.json file."""
         rosetta_root = self._find_source_root("rosetta")
         if not rosetta_root:
-            self._bridges = []
-            return self._bridges
+            return {}
 
         bridge_path = rosetta_root / "bridges" / "rosetta-bridges.json"
         if not bridge_path.is_file():
-            self._bridges = []
-            return self._bridges
+            return {}
 
-        data = json.loads(bridge_path.read_text(encoding="utf-8"))
-        self._bridges = data.get("map", [])
-        return self._bridges
+        return json.loads(bridge_path.read_text(encoding="utf-8"))
