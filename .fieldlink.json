@@ -149,6 +149,23 @@
         "consent": { "license": "CC0-1.0", "share_ok": true }
       },
       {
+        "name": "shadow-hunting",
+        "repo": "https://github.com/JinnZ2/Shadow-Hunting",
+        "ref": "main",
+        "direction": "bidirectional",
+        "paths": [
+          "shadow_hunting/**/*.py",
+          "examples/**/*.py"
+        ],
+        "exports": [
+          { "runtime": "shadow_hunting/shadow_data_mining.py", "provides": ["SHADOW.PHI_DETECTION", "SHADOW.FIBONACCI_DETECTION", "SHADOW.FIELD_COUPLING"] },
+          { "runtime": "shadow_hunting/coupling_framework.py", "provides": ["SHADOW.GEOMETRIC_COHERENCE", "SHADOW.ENERGY_BUDGET"] },
+          { "runtime": "shadow_hunting/bioelectric_protocol.py", "provides": ["SHADOW.BIOELECTRIC_PROTOCOL", "SHADOW.MORPHOGENETIC_FIELD"] }
+        ],
+        "consumes": ["CONST.PHI", "SHAPE.ICOSA", "SHAPE.DODECA"],
+        "consent": { "license": "MIT", "share_ok": true }
+      },
+      {
         "name": "living-intelligence",
         "repo": "https://github.com/JinnZ2/Living-Intelligence-Database",
         "ref": "main",
@@ -179,7 +196,7 @@
       "atlas/**/*.json"
     ],
     "merge": {
-      "order": ["local", "rosetta", "polyhedral", "emotions", "defense", "audit", "biogrid", "regen", "fractal-compass", "fractal-compass-core", "biomachine-ecology", "mandala", "resilience", "living-intelligence"],
+      "order": ["local", "rosetta", "polyhedral", "emotions", "defense", "audit", "biogrid", "regen", "fractal-compass", "fractal-compass-core", "biomachine-ecology", "mandala", "resilience", "shadow-hunting", "living-intelligence"],
       "strategy": "deep-merge"
     },
     "offline": false,
