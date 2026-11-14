@@ -1,3 +1,6 @@
+> Read first: [READING_PROTOCOL.md](READING_PROTOCOL.md) (how to read this repo).
+> Map, not prescription. Errors are data. Check it. Built for the need, revisable.
+
 # 🧬 Universal Redesign Algorithm
 
 *A universal system redesign algorithm inspired by biology, optimized with fractal logic, and validated through scientific modeling.*
